@@ -1,0 +1,61 @@
+.settings-page {
+    padding: 24px;
+}
+
+.settings-section {
+    background-color: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+}
+
+.settings-section h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.form-group input {
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: var(--background);
+}
+
+.api-key {
+    font-family: monospace;
+    background: var(--muted);
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.copy-btn,
+.upgrade-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.copy-btn:hover,
+.upgrade-btn:hover {
+    opacity: 0.9;
+}

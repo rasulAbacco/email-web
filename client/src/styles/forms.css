@@ -1,0 +1,41 @@
+.forms-page-wrapper {
+    padding: 24px;
+}
+
+.form-section {
+    background-color: var(--card);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.form-description {
+    margin-bottom: 12px;
+}
+
+.form-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.form-table th,
+.form-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.form-table th {
+    background-color: var(--muted);
+    font-weight: bold;
+}
+
+.form-table tr:last-child td {
+    border-bottom: none;
+}

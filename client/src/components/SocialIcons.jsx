@@ -1,12 +1,13 @@
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import "../index.css";
 
 export default function SocialIcons() {
   return (
-    <div className="flex gap-4 justify-center py-4">
-      <a href="#" target="_blank" rel="noreferrer"><FaFacebook className="text-xl" /></a>
-      <a href="#" target="_blank" rel="noreferrer"><FaTwitter className="text-xl" /></a>
-      <a href="#" target="_blank" rel="noreferrer"><FaInstagram className="text-xl" /></a>
-      <a href="#" target="_blank" rel="noreferrer"><FaLinkedin className="text-xl" /></a>
+    <div className="social-icons-container">
+      <a href="#" target="_blank" rel="noreferrer" className="social-icon"><FaFacebook /></a>
+      <a href="#" target="_blank" rel="noreferrer" className="social-icon"><FaTwitter /></a>
+      <a href="#" target="_blank" rel="noreferrer" className="social-icon"><FaInstagram /></a>
+      <a href="#" target="_blank" rel="noreferrer" className="social-icon"><FaLinkedin /></a>
     </div>
   );
 }

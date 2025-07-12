@@ -1,0 +1,37 @@
+.integrations-page {
+    padding: 24px;
+}
+
+.integrations-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .integrations-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.integration-desc {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    margin-bottom: 12px;
+}
+
+.connect-btn {
+    background-color: transparent;
+    color: var(--primary);
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid var(--primary);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.connect-btn:hover {
+    background-color: var(--primary);
+    color: #fff;
+}

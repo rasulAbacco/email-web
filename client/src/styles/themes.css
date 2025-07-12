@@ -1,0 +1,38 @@
+/* Add overrides or variables if you use CSS custom properties */
+:root {
+    --primary: #3b82f6;
+    --background: #ffffff;
+    --foreground: #111827;
+}
+
+.dark {
+    --background: #111827;
+    --foreground: #f9fafb;
+}
+
+.theme-toggle {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 999px;
+    background-color: #f1f5f9;
+    color: #1f2937;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    background-color: #e2e8f0;
+}
+
+.theme-toggle.dark {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+.theme-toggle.dark:hover {
+    background-color: #374151;
+}

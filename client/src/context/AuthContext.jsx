@@ -17,13 +17,13 @@ export const AuthProvider = ({ children }) => {
     const login = (userData) => {
         localStorage.setItem("emailai-user", JSON.stringify(userData));
         setUser(userData);
-        router.push("/dashboard");
+        router("/dashboard");
     };
 
     const logout = () => {
         localStorage.removeItem("emailai-user");
         setUser(null);
-        router.push("/login");
+        router("/login");
     };
 
     return (

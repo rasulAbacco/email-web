@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom';
-
+import { Link, useLocation } from "react-router-dom";
+import "../index.css";
 
 const links = [
   { name: "Dashboard", href: "/dashboard" },
@@ -13,17 +13,17 @@ const links = [
 ];
 
 export default function Sidebar() {
-  const router = useNavigate();
+  const location = useLocation();
 
   return (
-    <aside className="w-64 bg-card h-screen p-6 border-r">
-      <nav className="flex flex-col gap-4">
+    <aside className="sidebar">
+      <nav className="sidebar-nav">
         {links.map((link) => (
           <Link
             key={link.href}
-            href={link.href}
-            className={`p-2 rounded-md hover:bg-muted ${
-              router.pathname === link.href ? "bg-muted font-bold" : ""
+            to={link.href}
+            className={`sidebar-link ${
+              location.pathname === link.href ? "active" : ""
             }`}
           >
             {link.name}

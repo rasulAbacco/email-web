@@ -1,6 +1,7 @@
 import AppLayout from "../layouts/AppLayout";
 import PageHeader from "../components/PageHeader";
 import ChartWrapper from "../components/ChartWrapper";
+import "../styles/analytics.css"; // External styles
 
 const dummyData = [
   { label: "Jan", value: 500 },
@@ -13,8 +14,10 @@ const dummyData = [
 export default function AnalyticsPage() {
   return (
     <AppLayout>
-      <PageHeader title="Analytics" subtitle="Track performance and engagement" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="analytics-header">
+        <PageHeader title="Analytics" subtitle="Track performance and engagement" />
+      </div>
+      <div className="analytics-grid">
         <ChartWrapper data={dummyData} />
         <ChartWrapper data={dummyData} />
       </div>

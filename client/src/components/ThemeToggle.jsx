@@ -1,18 +1,22 @@
 import { useEffect, useState } from "react";
+import "../styles/themes.css";
 
 export function ThemeToggle() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   return (
     <button
-      className="px-3 py-1 border rounded"
+      className={`theme-toggle ${darkMode ? "dark" : "light"}`}
       onClick={() => setDarkMode(!darkMode)}
     >
-      {darkMode ? "Light" : "Dark"}
+      {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
     </button>
   );
 }

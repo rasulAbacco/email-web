@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { ThemeProvider } from "./context/ThemeContext";
+import LandingPage from "./pages/LandingPage";
 import DashboardPage from "./pages/dashboard";
 import LoginPage from "./pages/login";
 import SignupPage from "./pages/signup";
@@ -24,7 +25,7 @@ export default function App() {
     <ThemeProvider>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/" element={<LandingPage to="/LandingPage" />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
 
