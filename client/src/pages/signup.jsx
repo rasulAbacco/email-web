@@ -7,32 +7,33 @@ import { Link } from "react-router-dom";
 import "../styles/signup.css";
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/signup", {
+      const res = await fetch("http://localhost:5000/api/auth/signup", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(form),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
-        navigate("/dashboard"); // change if needed
+        alert("Signup successful!");
+        navigate("/login");
       } else {
-        const data = await res.json();
-        alert(data.error || "Signup failed");
+        alert(data.message || "Signup failed.");
       }
     } catch (err) {
-      alert("Server error");
+      alert("Server error: " + err.message);
     }
   };
 
@@ -40,13 +41,34 @@ export default function SignupPage() {
     <AuthLayout>
       <h1 className="auth-title">Sign Up</h1>
       <form className="auth-form" onSubmit={handleSubmit}>
-        <InputField label="Name" name="name" value={formData.name} onChange={handleChange} required />
-        <InputField label="Email" type="email" name="email" value={formData.email} onChange={handleChange} required />
-        <InputField label="Password" type="password" name="password" value={formData.password} onChange={handleChange} required />
+        <InputField
+          label="Name"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <InputField
+          label="Email"
+          name="email"
+          type="email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        <InputField
+          label="Password"
+          name="password"
+          type="password"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
         <Button type="submit">Create Account</Button>
       </form>
       <p className="auth-footer-text">
-        Already have an account? <Link to="/login" className="auth-link">Log in</Link>
+        Already have an account?{" "}
+        <Link to="/login" className="auth-link">Log in</Link>
       </p>
     </AuthLayout>
   );

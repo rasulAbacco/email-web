@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 body {
   margin: 0;
@@ -87,6 +91,10 @@ html.dark {
   outline: none;
   background-color: #fff;
   box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.2);
+}
+
+input {
+  color: black;
 }
 
 

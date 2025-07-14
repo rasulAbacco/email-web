@@ -1,14 +1,3 @@
-.navbar {
-    @apply flex justify-between items-center px-6 py-4 bg-background border-b shadow;
-}
-
-.sidebar {
-    @apply w-64 bg-card h-screen p-6 border-r;
-}
-
-.main-content {
-    @apply flex-1 p-6 overflow-y-auto;
-}
 
 .app-layout {
     display: flex;
@@ -35,4 +24,15 @@
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.04);
     transition: background 0.3s ease;
     position: relative;
+}
+
+
+/* - - - - - - - - - - - - - - -
+App Layout
+- - - - - - - - - - - - - - - */
+
+.title-container .title-text{
+    color:  black;
+    font-size: 20px;
+    font-weight: 700;
 }

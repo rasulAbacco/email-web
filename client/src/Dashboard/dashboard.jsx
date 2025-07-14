@@ -1,6 +1,7 @@
 import AppLayout from "../layouts/AppLayout";
 import PageHeader from "../components/PageHeader";
 import "../styles/dashboard.css";
+import '../index.css';
 
 export default function DashboardPage() {
   return (

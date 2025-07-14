@@ -1,26 +1,39 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../layouts/AuthLayout";
 import InputField from "../components/InputField";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { useState } from "react";
 import "../styles/login.css";
 
 export default function LoginPage() {
   const { login } = useAuth();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // ✅ prevents page refresh and default behavior
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    // You can add validation here if needed
-    const userData = {
-      email,
-      name: "Demo User", // Replace with real API call later
-    };
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ email, password }),
+      });
 
-    login(userData); // ✅ triggers redirect to /dashboard
+      const data = await res.json();
+
+      if (res.ok) {
+        login(data.user); // Save user in context
+        navigate("/dashboard");
+      } else {
+        alert(data.message || "Invalid credentials. Please try again.");
+      }
+    } catch (err) {
+      alert("Server error: " + err.message);
+    }
   };
 
   return (
